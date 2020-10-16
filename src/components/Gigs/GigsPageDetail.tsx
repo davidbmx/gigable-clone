@@ -154,28 +154,34 @@ const GigsPageDetail = ({ jobDetail , getJob, request, similar }: PropsFromRedux
                         </div>
                     </div>
                     <div className="column is-4">
-                        <MapContainer
-                            lat={jobDetail.address.lat}
-                            lng={jobDetail.address.lng}
-                        />
-                        <div className="mt-5">
-                            <div className="field">
-                                <label className="label">Pick-up location</label>
-                                <div className="control">
-                                    <span>{jobDetail.address.line1} {jobDetail.address.formatted_address}</span>
-                                </div>
-                            </div>
-                            {
-                                jobDetail.deliveryGig ? (
-                                    <div className="field">
-                                        <label className="label">Drop-off location</label>
-                                        <div className="control">
-                                            <span>{jobDetail.deliveryGig.address.line1} {jobDetail.deliveryGig.address.formatted_address}</span>
+                        {
+                            jobDetail.address ? (
+                                <Fragment>
+                                    <MapContainer
+                                        lat={jobDetail.address.lat}
+                                        lng={jobDetail.address.lng}
+                                    />
+                                    <div className="mt-5">
+                                        <div className="field">
+                                            <label className="label">Pick-up location</label>
+                                            <div className="control">
+                                                <span>{jobDetail.address.line1} {jobDetail.address.formatted_address}</span>
+                                            </div>
                                         </div>
+                                        {
+                                            jobDetail.deliveryGig ? (
+                                                <div className="field">
+                                                    <label className="label">Drop-off location</label>
+                                                    <div className="control">
+                                                        <span>{jobDetail.deliveryGig.address.line1} {jobDetail.deliveryGig.address.formatted_address}</span>
+                                                    </div>
+                                                </div>
+                                            ) : ''
+                                        }
                                     </div>
-                                ) : ''
-                            }
-                        </div>
+                                </Fragment>
+                            ) : ''
+                        }
                     </div>
                 </div>
                 <div className="columns">
