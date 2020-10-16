@@ -7,7 +7,7 @@ import {
     SET_SELECTED_TAGS
 } from '../constants/actionTypes';
 
-const ENDPOINT_BASE = process.env.REACT_APP_API_INDUSTRIES as any;
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT as any;
 
 export const getTagsByIndustry = (industryId: number) => async (
     dispath: Dispatch<ActionsTags>, getState: () => RootState
@@ -15,7 +15,7 @@ export const getTagsByIndustry = (industryId: number) => async (
     const { tags } = getState().tags;
     if (!tags[industryId]) {
         try {
-            const response = await axios.get(`${ENDPOINT_BASE}/${industryId}/tags`);
+            const response = await axios.get(`${API_ENDPOINT}/industries/${industryId}/tags`);
             const tags_data = {...tags};
             tags_data[industryId] = response.data;
             dispath({

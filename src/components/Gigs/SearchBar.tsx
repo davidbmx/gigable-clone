@@ -77,7 +77,7 @@ const SearchBar = ({ current, getTagsByIndustry }: PropsFromRedux) => {
                     <div className="control is-expanded">
                         <div className="control">
                             <div className="select is-fullwidth">
-                                <select value={job} onChange={(ev) => setJob(ev.target.value)}>
+                                <select disabled={current.length === 0} value={job} onChange={(ev) => setJob(ev.target.value)}>
                                     <option value="">Select a job type</option>
                                     { renderOptionsJobType() }
                                 </select>

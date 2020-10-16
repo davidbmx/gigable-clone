@@ -1,16 +1,26 @@
 import React from 'react';
-import JobsList from './JobsList';
-import SearchBar from './SearchBar';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import GigsPageList from './GigsPageList';
+import GigsPageDetail from './GigsPageDetail';
 
 const Gigs = () =>  {
+    let { path } = useRouteMatch();
     return (
-        <div className="columns page-container">
-            <div className="column is-10 is-offset-1 has-mb-18">
-                <h1 className="page-title">Open Gigs</h1>
-                <SearchBar />
-                <JobsList />
+        <div className="page-container">
+            <div className="columns">
+                <div className="column is-10 is-offset-1 mb-18">
+                    <Switch>
+                        <Route exact path={path}>
+                            <GigsPageList />
+                        </Route>
+                        <Route path={`${path}/:jobId`}>
+                            <GigsPageDetail />
+                        </Route>
+                    </Switch>
+                </div>
             </div>
         </div>
+        
     )
 }
 

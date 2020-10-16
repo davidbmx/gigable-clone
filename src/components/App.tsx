@@ -5,8 +5,8 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-import Gigs from './Gigs/Gigs';
 
+import Gigs from './Gigs/Gigs';
 import Header from './Header';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <Fragment>
       <Router>
         <Header />
-        <div className="container">
+        <div className="container app">
           <Switch>
             <Redirect exact path="/" to="gigs" />
             <Route path="/gigs">

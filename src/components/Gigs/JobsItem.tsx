@@ -25,7 +25,7 @@ const JobsItem = ({ job }: any) => {
                     </p>
                 </div>
                 <div className="column is-3 item-tag">
-                    <span className="tag is-primary">AVAILABLE</span>
+                    <span className="tag is-primary">{job.status}</span>
                 </div>
             </div>
         </div>
