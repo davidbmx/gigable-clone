@@ -7,6 +7,7 @@ import SearchBar from './SearchBar';
 import JobsList from './JobsList';
 import { Helmet } from 'react-helmet';
 import ReactPaginate from 'react-paginate';
+import Loader from '../Loader';
 
 const mapStateToProps = (state: RootState) => state.jobs;
 
@@ -30,6 +31,11 @@ const GigsPageList = ({ jobs, getJobs, request, totalPages }: PropsFromRedux) =>
             getJobs(1);
         }
     });
+
+    if (!jobs.length) {
+        return <Loader />
+    }
+
     return (
         <Fragment>
             <Helmet>
