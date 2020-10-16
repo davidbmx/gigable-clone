@@ -11,3 +11,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.custom-navbar {
+  background: #e74843 !important;
+  background-image: linear-gradient(90deg,#e74843,#c83a63 65%,#b4317a) !important;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.custom-navbar .navbar-item {
+  color: #e8dfe8 !important;
+}
+
+.custom-navbar .navbar-item:hover {
+  background: #fafafa !important;
+  color: #3273dc !important;
+  text-decoration: none;
+}
+
+.page-container {
+  margin-top: 5%;
+}
+
+.page-container .page-title {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.search-bar .control-or {
+  align-items: center;
+}
+
+.job-item-wrapper {
+  padding: 20px 10px;
+}
+
+.job-item-wrapper:hover {
+  background-color: rgba(204,239,12,.16) !important;
+}
+
+.job-item-wrapper:nth-child(even) {
+  background-color: hsla(0,0%,90.2%,.36);
+}
+
+.job-item-wrapper .link-title {
+  text-decoration: underline;
+}
+
+.job-item-wrapper .item-image {
+  display: flex;
+  align-items: center;
+}
+
+.job-item-wrapper .item-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.job-item-wrapper .item-tag {
+  text-align: right;
+}
+
+.job-item-wrapper .item-detail-wrappper .description {
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
