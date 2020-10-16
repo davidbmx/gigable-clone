@@ -184,6 +184,9 @@ const GigsPageDetail = ({ jobDetail , getJob, request, similar }: PropsFromRedux
                     </div>
                 </div>
             </div>
+            <hr />
+            <h1 className="title-more">See also</h1>
+            <hr />
             <div className="">
                 <div className="column">
                     <JobsList

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 const JobsItem = ({ job }: any) => {
@@ -21,7 +22,7 @@ const JobsItem = ({ job }: any) => {
                         {job.description}
                     </p>
                     <p className="is-size-7">
-                        Available from November  to November 
+                        Available from {moment(job.startDate.iso).format('dddd, D MMMM YYYY HH:mm')} to  {moment(job.endDate.iso).format('dddd, D MMMM YYYY  HH:mm')}
                     </p>
                 </div>
                 <div className="column is-3 item-tag">
