@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import moment from 'moment';
 
 import { RootState } from '../../reducers/index';
@@ -36,9 +37,13 @@ const GigsPageDetail = ({ jobDetail , getJob, request, similar }: PropsFromRedux
     if (!jobDetail || request) {
         return <Loader />
     }
-    console.log(similar);
     return (
         <Fragment>
+            <Helmet>
+                <title>
+                    {`Gig #${jobDetail.id} - ${jobDetail.tags[0].name} - Gigable`}
+                </title>
+            </Helmet>
             <nav className="breadcrumb custom-breadcrumb" aria-label="breadcrumbs">
                 <ul>
                     <li><Link to="/gigs">Gigs</Link></li>
@@ -169,7 +174,7 @@ const GigsPageDetail = ({ jobDetail , getJob, request, similar }: PropsFromRedux
                                             </div>
                                         </div>
                                         {
-                                            jobDetail.deliveryGig ? (
+                                            jobDetail.deliveryGig && jobDetail.deliveryGig.address ? (
                                                 <div className="field">
                                                     <label className="label">Drop-off location</label>
                                                     <div className="control">

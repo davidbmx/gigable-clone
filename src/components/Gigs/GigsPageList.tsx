@@ -5,6 +5,7 @@ import { RootState } from '../../reducers';
 
 import SearchBar from './SearchBar';
 import JobsList from './JobsList';
+import { Helmet } from 'react-helmet';
 
 const mapStateToProps = (state: RootState) => state.jobs;
 
@@ -25,6 +26,9 @@ const GigsPageList = ({ jobs, getJobs, request }: PropsFromRedux) => {
     });
     return (
         <Fragment>
+            <Helmet>
+                <title>Gigable - Future of Work - Open Gigs</title>
+            </Helmet>
             <h1 className="page-title">Open Gigs</h1>
             <SearchBar />
             <JobsList
