@@ -9,10 +9,10 @@ import { LOADED_JOBS, REQUEST_JOBS, LOADED_JOB_DETAIL } from '../constants/actio
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT as any;
 
-export const getJobs = () => async (dispatch: Dispatch<ActionsJobs>, getState: () => RootState) => {
+export const getJobs = (page: number) => async (dispatch: Dispatch<ActionsJobs>, getState: () => RootState) => {
     dispatch({ type: REQUEST_JOBS, payload: null });
     try {
-        const response = await axios.get(`${API_ENDPOINT}/helpers/gigs`);
+        const response = await axios.get(`${API_ENDPOINT}/helpers/gigs?page=${page}`);
         const { data } = response;
         dispatch({
             type: LOADED_JOBS,

@@ -6,6 +6,7 @@ import { RootState } from '../../reducers';
 import SearchBar from './SearchBar';
 import JobsList from './JobsList';
 import { Helmet } from 'react-helmet';
+import ReactPaginate from 'react-paginate';
 
 const mapStateToProps = (state: RootState) => state.jobs;
 
@@ -18,10 +19,15 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 
-const GigsPageList = ({ jobs, getJobs, request }: PropsFromRedux) => {
+const GigsPageList = ({ jobs, getJobs, request, totalPages }: PropsFromRedux) => {
+
+    const handlePageClick = (e: any) => {
+        console.log(e.selected);
+        getJobs(e.selected);
+    }
     useEffect(() => {
         if (!jobs.length && !request) {
-            getJobs();
+            getJobs(1);
         }
     });
     return (
@@ -34,6 +40,22 @@ const GigsPageList = ({ jobs, getJobs, request }: PropsFromRedux) => {
             <JobsList
                 jobs={jobs}
             />
+            <div className="columns">
+                <div className="column is-6">
+                    <ReactPaginate
+                        previousLabel={"prev"}
+                        nextLabel={"next"}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={totalPages}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={handlePageClick}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                    />
+                </div>
+            </div>
         </Fragment>
     )
 }
