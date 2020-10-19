@@ -18,7 +18,7 @@ export default (state = INITIAL_STATE, action: Action) => {
         case SET_SELECTED_TAGS:
             return {
                 ...state,
-                current: action.payload
+                current: action.payload.current
             }
         case SET_TAG:
             return {

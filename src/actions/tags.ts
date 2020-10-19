@@ -30,10 +30,11 @@ export const getTagsByIndustry = (industryId: number) => async (
         }
         
     } else {
+        console.log(tags[industryId]);
         dispath({
             type: SET_SELECTED_TAGS,
             payload: {
-                current: [...tags[industryId]]
+                current: tags[industryId]
             }
         });
     }

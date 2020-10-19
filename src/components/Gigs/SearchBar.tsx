@@ -31,6 +31,7 @@ const SearchBar = ({ current, getTagsByIndustry }: PropsFromRedux) => {
     const [text, setText] = useState<string>('');
     const [industry, setIndustry] = useState<string>('');
     const [job, setJob] = useState<string>('');
+    console.log(current);
 
     const renderOptions = () => SELECT_INDUSTRY.map((item, index) => (
         <option key={index} value={index + 1}>{item}</option>
